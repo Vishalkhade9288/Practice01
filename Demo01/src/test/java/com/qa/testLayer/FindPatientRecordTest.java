@@ -17,7 +17,7 @@ public class FindPatientRecordTest extends TestBase{
 		home.clickOnFindPatientRecord();
 		Thread.sleep(3000);
 		find.searchById("100NNT");
-		System.out.println("Test Case 04 - Find Patient Record Test is PASS");
+		logger.info("Test Case 04 - Find Patient Record Test is PASS");
 		
 	}
 }

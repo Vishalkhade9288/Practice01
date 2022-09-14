@@ -45,7 +45,7 @@ public class RegisterAPatient extends TestBase{
 			Thread.sleep(3000);
 		reg.clickOnConfirmButton();
 		
-		System.out.println("Test Case 03 - Register A Patient is PASS");
+		logger.info("Test Case 03 - Register A Patient is PASS");
 		
 
 	}

@@ -15,7 +15,7 @@ public class LogOutTest extends TestBase {
 		login.clickOnLogInButton();
 		
 		logout.clickOnLogOutButton();
-		System.out.println("Test Case 02 - Log Out Test is PASS");
+		logger.info("Test Case 02 - Log Out Test is PASS");
 
 	}
 }

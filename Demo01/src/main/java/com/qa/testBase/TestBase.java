@@ -1,9 +1,14 @@
 package com.qa.testBase;
 
 import java.time.Duration;
+import java.util.logging.Logger;
+
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
@@ -23,6 +28,22 @@ public class TestBase {
 	public HomePage home;
 	public RegisterPatient reg;
 	public FindPatientRecordPage find;
+	public static Logger logger;
+	
+	@BeforeClass
+	public void start()
+	{
+		logger = Logger.getLogger("Demo01");
+		PropertyConfigurator.configure("Log4j.properties");
+		logger.info("Framework execution started");
+	}
+	
+	@AfterClass
+	public void stop()
+	{
+		logger.info("Framework execution stopped");
+	}
+	
 	
 	@Parameters("browser")
 	@BeforeMethod
@@ -49,10 +70,12 @@ public class TestBase {
 		}
 		
 		driver.get("https://demo.openmrs.org/openmrs/login.htm");
+		logger.info("URL Launch");
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+		logger.info("Delete All Cookies and Pageloadtimeout ");
 		
 		login = new LogInPage();
 		logout = new LogOutPage();

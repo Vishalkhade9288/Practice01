@@ -13,6 +13,6 @@ public class LogInTest extends TestBase {
 		login.enterPassword("Admin123");
 		login.selectLocationForTheSession();
 		login.clickOnLogInButton();
-		System.out.println("Test Case 01 - Log In Test is PASS");
+		logger.info("Test Case 01 - Log In Test is PASS");
 	}
 }
